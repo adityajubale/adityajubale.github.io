@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Aditya Ubale Portfolio"
+description = "A polished personal portfolio for Aditya Ubale, a full-stack software engineer specializing in Angular, Node.js, enterprise systems, and analytics automation."
+version = "1.0.0"
+id = "artifacts/aditya-portfolio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19488
+
+[services.development]
+run = "pnpm --filter @workspace/aditya-portfolio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/aditya-portfolio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/aditya-portfolio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19488"
+BASE_PATH = "/"

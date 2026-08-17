@@ -1,6 +1,6 @@
-# [Project name]
+# Aditya Ubale Portfolio
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A polished personal portfolio for Aditya Ubale, a full-stack software engineer focused on Angular, Node.js, ERP systems, and analytics automation.
 
 ## Run & Operate
 
@@ -22,23 +22,35 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/aditya-portfolio/src/App.tsx` — portfolio content, sections, navigation, filters, theme behavior, and interactions
+- `artifacts/aditya-portfolio/src/index.css` — portfolio visual system, responsive layouts, motion, and theme tokens
+- `artifacts/aditya-portfolio/index.html` — page metadata and document shell
+- `attached_assets/Pasted--DOCTYPE-html-html-lang-en-data-theme-dark-head-meta-ch_1786962654704.txt` — original portfolio source content
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The portfolio is a frontend-only single-page experience because its content is static and does not need a server or database.
+- The visual direction intentionally moves away from the original neon-heavy template toward an editorial, grid-based engineering identity.
+- The original uploaded HTML remains the source of truth for personal facts, projects, skills, metrics, and contact details.
+- Navigation, project filtering, theme switching, scroll progress, and the contact mail action are implemented as real client-side interactions.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Responsive personal portfolio with a high-impact hero and clear engineering positioning
+- About, services, experience, skills, projects, and contact sections
+- Project and skill filtering
+- Desktop navigation plus a mobile bottom dock
+- Light/dark theme toggle with local persistence
+- Accessible mailto contact form
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Keep the portfolio stylish, polished, and meaningfully different from the original design.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- Run the portfolio through the managed `artifacts/aditya-portfolio: web` workflow so `PORT` and `BASE_PATH` are provided.
+- Keep personal facts and project claims aligned with the uploaded source unless Aditya provides updated details.
 
 ## Pointers
 
