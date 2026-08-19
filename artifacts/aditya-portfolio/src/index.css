@@ -296,7 +296,7 @@ button { cursor: pointer; }
 .contact-copy { font-family:var(--app-font-display); font-size:clamp(2.1rem, 3.5vw, 3.4rem); line-height:1.02; letter-spacing:-.065em; }
 .contact-copy p { margin:20px 0 0; color:hsl(var(--muted-foreground)); font-family:var(--app-font-sans); font-size:.88rem; line-height:1.75; letter-spacing:0; }
 .contact-list { display:grid; gap:0; margin-top:30px; }
-.contact-item { display:grid; grid-template-columns:31px minmax(0, 1fr) auto; align-items:center; gap:14px; min-height:58px; padding:13px 0; color:hsl(var(--muted-foreground)); border-bottom:1px solid hsl(var(--border)); font-family:var(--app-font-sans); font-size:.8rem; line-height:1.4; transition:color .2s ease, padding .2s ease; }
+.contact-item { display:grid; grid-template-columns:31px minmax(0, 1fr) auto; align-items:center; gap:14px; min-height:58px; padding:13px 0; color:hsl(var(--muted-foreground)); border-bottom:1px solid hsl(var(--border)); font-family:var(--app-font-sans); font-size:.8rem; line-height:1.4; letter-spacing:0; transition:color .2s ease, padding .2s ease; }
 .contact-item:hover { padding-left:8px; color:hsl(var(--primary)); }
 .contact-icon { display:grid; place-items:center; width:31px; height:31px; border:1px solid hsl(var(--border)); border-radius:50%; color:hsl(var(--primary)); }
 .contact-text { min-width:0; overflow-wrap:anywhere; white-space:normal; }
