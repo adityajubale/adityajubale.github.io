@@ -1,5 +1,5 @@
 import { type FormEvent, type ReactNode, useEffect, useMemo, useState } from 'react';
-import { Route, Switch, Router as WouterRouter, useLocation } from 'wouter';
+import { Route, Switch, Router as WouterRouter } from 'wouter';
 import {
   ArrowDown,
   ArrowUp,
@@ -171,7 +171,7 @@ function IconLink({ href, label, children }: { href: string; label: string; chil
 }
 
 function Home() {
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [theme, setTheme] = useState<'dark' | 'light'>('light');
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [projectFilter, setProjectFilter] = useState<'all' | ProjectCategory>('all');
@@ -184,7 +184,8 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    document.documentElement.classList.toggle('light', theme === 'light');
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+    document.documentElement.classList.remove('light');
     document.documentElement.dataset.theme = theme;
     window.localStorage.setItem('aditya-theme', theme);
   }, [theme]);
@@ -297,18 +298,12 @@ function Home() {
             </div>
           </div>
           <div className="hero-visual reveal" style={{ animationDelay: '120ms' }} aria-label="A small snapshot of Aditya's technical focus" data-testid="visual-technical-focus">
+            <img className="hero-photo" src="/profile.png" alt="Aditya Ubale, Software Engineer" />
+            <div className="hero-photo-shade" aria-hidden="true" />
             <span className="orbit one" aria-hidden="true" /><span className="orbit two" aria-hidden="true" /><span className="orbit-dot" aria-hidden="true" />
-            <div className="code-card">
-              <div className="code-bar"><span className="window-dot" /><span className="window-dot" /><span className="window-dot" /><span className="code-title">aditya / systems.ts</span></div>
-              <div className="code-body">
-                <div><span className="key">const</span> <span className="value">focus</span> = {'{'}</div>
-                <div>&nbsp;&nbsp;front_end: <span className="value">'Angular'</span>,</div>
-                <div>&nbsp;&nbsp;back_end: <span className="value">'Node.js'</span>,</div>
-                <div>&nbsp;&nbsp;data: <span className="value">'Power BI + SQL'</span>,</div>
-                <div>&nbsp;&nbsp;impact: <span className="value">'measurable'</span>,</div>
-                <div>{'}'}</div>
-                <div className="comment">// turn complexity into clarity</div>
-              </div>
+            <div className="hero-identity">
+              <strong>Aditya Ubale</strong>
+              <span>Software Engineer</span>
             </div>
             <div className="scroll-cue"><span className="scroll-line" /> Scroll to explore</div>
           </div>

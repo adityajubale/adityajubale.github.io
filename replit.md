@@ -30,7 +30,7 @@ A polished personal portfolio for Aditya Ubale, a full-stack software engineer f
 ## Architecture decisions
 
 - The portfolio is a frontend-only single-page experience because its content is static and does not need a server or database.
-- The visual direction intentionally moves away from the original neon-heavy template toward an editorial, grid-based engineering identity.
+- The visual direction intentionally moves away from the original neon-heavy template toward a Cellar-inspired editorial engineering identity: warm paper surfaces, oxblood accents, serif display typography, and restrained studio-like composition.
 - The original uploaded HTML remains the source of truth for personal facts, projects, skills, metrics, and contact details.
 - Navigation, project filtering, theme switching, scroll progress, and the contact mail action are implemented as real client-side interactions.
 

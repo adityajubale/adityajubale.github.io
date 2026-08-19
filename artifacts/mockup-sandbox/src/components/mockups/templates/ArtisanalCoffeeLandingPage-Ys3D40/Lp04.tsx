@@ -152,4 +152,3 @@ export function Lp04() {
 }
 
 // Needed to match spec exact naming:
-export { Lp04 as 'lp-04' };

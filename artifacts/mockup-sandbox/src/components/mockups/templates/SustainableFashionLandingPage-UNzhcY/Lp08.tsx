@@ -132,5 +132,4 @@ export const Lp08 = () => {
   );
 };
 
-export { Lp08 as "lp-08" };
 

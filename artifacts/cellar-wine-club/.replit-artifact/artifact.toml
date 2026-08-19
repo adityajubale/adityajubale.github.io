@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/cellar/"
+title = "Cellar Wine Club"
+description = "A refined natural wine subscription experience inspired by the approved Cellar canvas design, with responsive browsing and an interactive membership flow."
+version = "1.0.0"
+id = "artifacts/cellar-wine-club"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/cellar/" ]
+localPort = 18155
+
+[services.development]
+run = "pnpm --filter @workspace/cellar-wine-club run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/cellar-wine-club", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/cellar-wine-club/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18155"
+BASE_PATH = "/cellar/"

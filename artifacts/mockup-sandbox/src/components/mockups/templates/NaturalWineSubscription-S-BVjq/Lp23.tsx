@@ -89,4 +89,3 @@ export default function Lp23() {
   );
 };
 
-export { Lp23 as "lp-23" };
