@@ -273,7 +273,17 @@ function Home() {
           <button className="icon-button" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`} data-testid="button-theme-toggle">
             {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
           </button>
-          <a className="resume-link" href="Aditya_Ubale_Resume.pdf" download data-testid="link-resume"><Download size={14} /> Resume</a>
+          <a
+            className="resume-link"
+            href="/Aditya_Ubale_Resume.pdf"
+            download
+            onClick={(event) => {
+              if (!window.confirm('Download Aditya Ubale resume PDF?')) event.preventDefault();
+            }}
+            data-testid="link-resume"
+          >
+            <Download size={14} /> Resume
+          </a>
           <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label={menuOpen ? 'Close menu' : 'Open menu'} data-testid="button-mobile-menu">
             {menuOpen ? <X size={17} /> : <Menu size={17} />}
           </button>
