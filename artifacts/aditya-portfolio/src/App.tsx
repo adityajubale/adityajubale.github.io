@@ -283,8 +283,6 @@ function Home() {
       <main>
         <section id="home" className="hero site-container">
           <div className="hero-copy reveal">
-            <div className="eyebrow" style={{ marginBottom: 14 }}>Aditya Ubale / Full-Stack Software Engineer</div>
-            <div className="hero-kicker eyebrow"><span className="live-dot" /> Available for opportunities</div>
             <h1>Complex systems.<br /><em>Clear outcomes.</em></h1>
             <p className="hero-lede">Full-stack software engineer crafting Angular and Node.js solutions for ERP, analytics, and web applications. I deliver scalable systems that automate workflows, improve reporting, and create seamless user experiences.</p>
             <div className="hero-actions">
