@@ -475,9 +475,9 @@ function Home() {
                 Let's connect.
                 <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out!</p>
                 <div className="contact-list">
-                  <a className="contact-item" href="mailto:adityajubale4567@gmail.com" data-testid="link-contact-email"><span className="contact-icon"><Mail size={15} /></span><span>adityajubale4567@gmail.com</span></a>
-                  <a className="contact-item" href="https://www.linkedin.com/in/aditya-ubale-b6456a1b4" target="_blank" rel="noreferrer noopener" data-testid="link-contact-linkedin"><span className="contact-icon"><Linkedin size={15} /></span><span>Connect with me professionally</span><ExternalLink size={13} /></a>
-                  <a className="contact-item" href="https://github.com/adityajubale" target="_blank" rel="noreferrer noopener" data-testid="link-contact-github"><span className="contact-icon"><Github size={15} /></span><span>Check out my code repositories</span><ExternalLink size={13} /></a>
+                  <a className="contact-item" href="mailto:adityajubale4567@gmail.com" data-testid="link-contact-email"><span className="contact-icon"><Mail size={15} /></span><span className="contact-text">adityajubale4567@gmail.com</span></a>
+                  <a className="contact-item" href="https://www.linkedin.com/in/aditya-ubale-b6456a1b4" target="_blank" rel="noreferrer noopener" data-testid="link-contact-linkedin"><span className="contact-icon"><Linkedin size={15} /></span><span className="contact-text">Connect with me professionally</span><ExternalLink size={13} /></a>
+                  <a className="contact-item" href="https://github.com/adityajubale" target="_blank" rel="noreferrer noopener" data-testid="link-contact-github"><span className="contact-icon"><Github size={15} /></span><span className="contact-text">Check out my code repositories</span><ExternalLink size={13} /></a>
                 </div>
               </div>
               <form className="contact-form" onSubmit={handleContactSubmit} data-testid="form-contact">
