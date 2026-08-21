@@ -343,6 +343,9 @@ function Home() {
       <header className="site-nav" data-testid="site-navigation">
         <button className="brand" onClick={() => navigate('home')} aria-label="Back to home" data-testid="button-home">
           <div className="falling-text" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <span style={{ animationDelay: '0s' }}>
+              <img src="/favicon.png" alt="Logo" style={{ width: '60px', height: '60px', objectFit: 'contain' }} />
+            </span>
             <div style={{ display: 'flex' }}>
               {"Aditya Ubale".split('').map((char, i) => (
                 <span key={i} style={{ animationDelay: `${(i + 1) * 0.12}s` }}>

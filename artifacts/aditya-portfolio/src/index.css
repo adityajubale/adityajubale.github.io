@@ -145,7 +145,7 @@ button { cursor: pointer; }
 .site-nav {
   position: fixed; z-index: 40; top: 0; left: 0; transform: none;
   width: 100%; display: flex; align-items: center; justify-content: space-between;
-  padding: 22px max(32px, calc((100% - 1180px) / 2)); border-bottom: 1px solid hsl(var(--border) / .7);
+  padding: 10px max(32px, calc((100% - 1180px) / 2)); border-bottom: 1px solid hsl(var(--border) / .7);
   background: hsl(var(--background) / .9); backdrop-filter: blur(18px);
 }
 .brand { display:flex; align-items:center; gap:12px; border:0; padding:0; background:transparent; font-family:var(--app-font-sans); outline:none; cursor:pointer; }
