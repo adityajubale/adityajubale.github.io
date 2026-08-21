@@ -26,6 +26,7 @@ import {
   Sun,
   X,
 } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
@@ -237,10 +238,19 @@ function Home() {
   const [projectFilter, setProjectFilter] = useState<'all' | ProjectCategory>('all');
   const [skillFilter, setSkillFilter] = useState<'all' | SkillCategory>('all');
   const [formStatus, setFormStatus] = useState('');
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const savedTheme = window.localStorage.getItem('aditya-theme');
     if (savedTheme === 'light' || savedTheme === 'dark') setTheme(savedTheme);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 300);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
@@ -579,18 +589,19 @@ function Home() {
       <footer className="site-footer">
         <div className="site-container footer-inner">
           <p className="footer-copy"><strong>Aditya Ubale</strong> · Full-Stack Software Engineer specializing in Angular, Node.js, and data-driven enterprise solutions.</p>
-          <div className="footer-actions">
-            <a className="action-btn" href="https://wa.me/919960841614" target="_blank" rel="noreferrer noopener" aria-label="Message on WhatsApp" data-testid="button-whatsapp">
-              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-            </a>
-            <button className="action-btn" onClick={() => navigate('home')} aria-label="Back to top" data-testid="button-back-to-top">
-              <ArrowUp size={16} />
-            </button>
-          </div>
         </div>
       </footer>
       <div className="mobile-dock" aria-label="Mobile navigation">
         {([['home', PanelTop], ['about', PenLine], ['projects', Layers3], ['contact', Mail]] as const).map(([id, Icon]) => <button key={id} className="dock-link" onClick={() => navigate(id)} data-testid={`button-dock-${id}`}><Icon size={16} /><span>{id}</span></button>)}
+      </div>
+      
+      <div className={`floating-actions ${isScrolled ? 'visible' : ''}`}>
+        <a className="floating-btn whatsapp-btn" href="https://wa.me/919960841614" target="_blank" rel="noreferrer noopener" aria-label="Message on WhatsApp" data-testid="button-whatsapp">
+          <FaWhatsapp size={20} />
+        </a>
+        <button className="floating-btn back-top-btn" onClick={() => navigate('home')} aria-label="Back to top" data-testid="button-back-to-top">
+          <ArrowUp size={18} />
+        </button>
       </div>
     </div>
   );
