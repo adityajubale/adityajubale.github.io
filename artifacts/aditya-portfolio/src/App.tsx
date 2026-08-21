@@ -342,7 +342,13 @@ function Home() {
       <div className="progress-track" aria-hidden="true"><div className="progress-fill" /></div>
       <header className="site-nav" data-testid="site-navigation">
         <button className="brand" onClick={() => navigate('home')} aria-label="Back to home" data-testid="button-home">
-          <span>Aditya Ubale</span>
+          <div className="falling-text">
+            {"Aditya Ubale".split('').map((char, i) => (
+              <span key={i} style={{ animationDelay: `${i * 0.12}s` }}>
+                {char === ' ' ? '\u00A0' : char}
+              </span>
+            ))}
+          </div>
         </button>
         <nav className={`nav-links ${menuOpen ? 'open' : ''}`} aria-label="Primary navigation">
           {navItems.map(([id, label]) => (

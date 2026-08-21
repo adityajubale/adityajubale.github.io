@@ -4,6 +4,6 @@ export const modules: ModuleMap = {
   "./components/mockups/templates/ArtisanalCoffeeLandingPage-Ys3D40/Lp04.tsx": () => import("../components/mockups/templates/ArtisanalCoffeeLandingPage-Ys3D40/Lp04.tsx"),
   "./components/mockups/templates/DarkAthleticCoachingLandingPage-axC-uY/Lp03.tsx": () => import("../components/mockups/templates/DarkAthleticCoachingLandingPage-axC-uY/Lp03.tsx"),
   "./components/mockups/templates/DarkAthleticCoachingLandingPage-GecCVX/Lp03.tsx": () => import("../components/mockups/templates/DarkAthleticCoachingLandingPage-GecCVX/Lp03.tsx"),
-  "./components/mockups/templates/NaturalWineSubscription-S-BVjq/Lp23.tsx": () => import("../components/mockups/templates/NaturalWineSubscription-S-BVjq/Lp23.tsx"),
-  "./components/mockups/templates/SustainableFashionLandingPage-UNzhcY/Lp08.tsx": () => import("../components/mockups/templates/SustainableFashionLandingPage-UNzhcY/Lp08.tsx")
+  "./components/mockups/templates/SustainableFashionLandingPage-UNzhcY/Lp08.tsx": () => import("../components/mockups/templates/SustainableFashionLandingPage-UNzhcY/Lp08.tsx"),
+  "./components/mockups/templates/NaturalWineSubscription-S-BVjq/Lp23.tsx": () => import("../components/mockups/templates/NaturalWineSubscription-S-BVjq/Lp23.tsx")
 };
