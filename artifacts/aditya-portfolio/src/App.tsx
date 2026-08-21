@@ -342,7 +342,6 @@ function Home() {
       <div className="progress-track" aria-hidden="true"><div className="progress-fill" /></div>
       <header className="site-nav" data-testid="site-navigation">
         <button className="brand" onClick={() => navigate('home')} aria-label="Back to home" data-testid="button-home">
-          <div className="brand-mark">AU</div>
           <span>Aditya Ubale</span>
         </button>
         <nav className={`nav-links ${menuOpen ? 'open' : ''}`} aria-label="Primary navigation">
