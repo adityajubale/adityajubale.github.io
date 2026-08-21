@@ -1,5 +1,6 @@
 import { type FormEvent, type ReactNode, useEffect, useMemo, useState } from 'react';
 import { Route, Switch, Router as WouterRouter } from 'wouter';
+import { motion } from 'framer-motion';
 import {
   ArrowDown,
   ArrowUp,
@@ -60,46 +61,64 @@ const projects: {
     title: 'Order Management ERP',
     category: 'fullstack',
     categoryLabel: 'Full-Stack',
-    description: 'End-to-end Angular and Node.js ERP for order processing, inventory tracking, low-stock alerts, and production support.',
-    tags: ['Angular', 'Node.js', 'MySQL', 'Express'],
+    description: 'End-to-end ERP system processing 1,500+ orders. Handles complete order lifecycles with advanced tracking and production support.',
+    tags: ['Angular', 'Node.js', 'Express', 'MySQL'],
     icon: Layers3,
   },
   {
-    id: 'sales-analytics-dashboard',
-    title: 'Sales Analytics Dashboard',
-    category: 'data',
-    categoryLabel: 'Data & Analytics',
-    description: 'Power BI dashboard that automated executive reporting and reduced manual reporting effort by 70% across sales teams.',
-    tags: ['Power BI', 'SQL', 'Data Visualization'],
+    id: 'inventory-erp',
+    title: 'Inventory Management ERP',
+    category: 'fullstack',
+    categoryLabel: 'Full-Stack',
+    description: 'Real-time inventory tracking system managing 500+ SKUs, featuring automated low-stock alerts and comprehensive product history.',
+    tags: ['Angular', 'Node.js', 'REST APIs', 'SQL'],
     icon: BarChart3,
   },
   {
-    id: 'recommendation-engine',
-    title: 'Recommendation Engine',
-    category: 'data',
-    categoryLabel: 'Data & Analytics',
-    description: 'Collaborative filtering system built with Python and Pandas to recommend books based on user behavior and ratings.',
-    tags: ['Python', 'Pandas', 'Machine Learning'],
+    id: 'hms',
+    title: 'Hospital Management System',
+    category: 'fullstack',
+    categoryLabel: 'Full-Stack',
+    description: 'Comprehensive healthcare management platform streamlining patient records, appointment scheduling, and billing workflows.',
+    tags: ['Full-Stack Development', 'Database Design', 'UI/UX'],
+    icon: PanelTop,
+  },
+  {
+    id: 'coworking-software',
+    title: 'Coworking Spaces Software',
+    category: 'fullstack',
+    categoryLabel: 'Full-Stack',
+    description: 'Management solution for coworking spaces handling desk bookings, member subscriptions, and resource allocation.',
+    tags: ['Web Application', 'Backend APIs', 'Dashboard'],
     icon: Network,
   },
   {
-    id: 'student-well-being-app',
-    title: 'Student Well-being App',
+    id: 'happiness-index-system',
+    title: 'Happiness Index System',
     category: 'fullstack',
     categoryLabel: 'Full-Stack',
-    description: 'Django web application measuring happiness and well-being using multiple indicators to support student engagement.',
-    tags: ['Django', 'REST API', 'UX Design'],
+    description: 'Django web app calculating student happiness indexes across 4 dimensions. Created custom scoring algorithm for 200+ students.',
+    tags: ['Python', 'Django', 'HTML/CSS', 'RESTful APIs'],
     icon: PanelTop,
   },
   {
     id: 'lpg-gas-leakage-monitor',
-    title: 'LPG Gas Leakage Monitor',
+    title: 'LPG Gas Leakage Detection',
     category: 'iot',
     categoryLabel: 'IoT',
-    description: 'IoT safety system using Arduino and MQ6 sensors for real-time gas detection, alerting, and automated shutoff response.',
-    tags: ['IoT', 'Arduino', 'Automation'],
+    description: 'IoT safety device using Arduino UNO and MQ6 gas sensor that triggers automatic Solenoid Valve shutoff within 2 seconds of detection.',
+    tags: ['Python', 'Arduino', 'IoT', 'C++'],
     icon: Rocket,
   },
+  {
+    id: 'recommendation-engine',
+    title: 'Book Recommendation System',
+    category: 'data',
+    categoryLabel: 'Data & Analytics',
+    description: 'Built using Python and Scikit-learn, applying collaborative and content-based filtering to a dataset of 270,000+ books.',
+    tags: ['Python', 'Scikit-learn', 'Machine Learning'],
+    icon: Network,
+  }
 ];
 
 const skillGroups: {
@@ -110,32 +129,32 @@ const skillGroups: {
   {
     id: 'frontend',
     title: 'Frontend Development',
-    items: [['Angular', 90], ['TypeScript', 88], ['HTML5 / CSS3', 95], ['JavaScript (ES6+)', 90]],
+    items: [['Angular', 90], ['TypeScript', 85], ['HTML5 / CSS3', 95], ['Bootstrap', 80]],
   },
   {
     id: 'backend',
     title: 'Backend Development',
-    items: [['Node.js / Express', 85], ['Python / Django', 80], ['PHP / .NET', 75], ['REST API Design', 88]],
+    items: [['Node.js / Express', 85], ['PHP', 80], ['Python / Django', 75], ['C# / .NET Core', 60]],
   },
   {
     id: 'data',
     title: 'Data & Analytics',
-    items: [['SQL / MySQL', 85], ['Power BI', 90], ['Data Science', 75], ['AWS Cloud', 70]],
+    items: [['SQL / MySQL', 90], ['Power BI', 90], ['Data Visualization', 85], ['Machine Learning', 75]],
   },
 ];
 
-const techStack = ['Angular', 'Node.js', 'JavaScript', 'Python', 'MySQL', 'AWS', 'Git', 'Docker', 'Power BI', 'HTML5', 'CSS3', 'Express'];
+const techStack = ['JavaScript', 'TypeScript', 'Python', 'PHP', 'C#', 'Angular', 'Node.js', 'Express.js', 'MySQL', 'Power BI', 'AWS', 'Git'];
 
 const experience = [
   {
-    date: 'July 2025 — Present',
+    date: 'July 2026 — Present',
     title: 'Software Engineer',
     company: 'Sedna Technologies',
     bullets: [
-      'Developed full-stack ERP systems with Angular, Node.js, Express, MySQL',
-      'Single-handedly managed Order ERP from client meetings to production support',
-      'Built real-time inventory tracking with low-stock alerts and product history',
-      'Designed and integrated RESTful APIs for seamless data exchange',
+      'Spearheaded an Order Management ERP end-to-end processing 1,500+ orders using Angular, Node.js, Express.js, and REST APIs.',
+      'Built a real-time Inventory Management ERP with automated low-stock alerts, managing 500+ SKUs.',
+      'Launched a Billing ERP using PHP, HTML, CSS, and MySQL handling 100+ active billing records monthly.',
+      'Engineered an Employee Management System for 20+ staff, reducing HR coordination time by 30%.',
     ],
   },
   {
@@ -143,20 +162,53 @@ const experience = [
     title: 'Data Analyst',
     company: 'ACS Consultancy',
     bullets: [
-      'Processed 100,000+ sales records using SQL & Excel, ensuring accuracy',
-      'Built automated KPI dashboards in Power BI, reducing manual reporting by 70%',
-      'Delivered actionable insights identifying weak zones and top-performing products',
+      'Built automated Power BI KPI dashboards tracking Revenue, Growth Rate, and Profit Margin.',
+      'Automated data refresh pipelines using SQL and Power Query, cutting manual reporting effort by ~70%.',
+      'Cleaned and normalized 50,000+ monthly sales records, improving reporting accuracy to 98%+.',
     ],
   },
   {
-    date: 'Feb 2024 — May 2024',
+    date: 'January 2024 — March 2024',
     title: 'Data Science Intern',
-    company: 'AiVariant',
+    company: 'AiVarient',
     bullets: [
-      'Developed Book Recommendation System using Python, Pandas & collaborative filtering',
-      'Performed EDA with Matplotlib & Seaborn for data insights',
+      'Built a Book Recommendation System using Python and Scikit-learn, applying collaborative filtering.',
+      'Executed an end-to-end ML pipeline achieving 87% recommendation relevance score.',
     ],
   },
+  {
+    date: 'April 2023 — July 2023',
+    title: 'Data Analyst Intern',
+    company: 'Saanzz Digital',
+    bullets: [
+      'Produced 5+ interactive Power BI dashboards and MySQL-driven reports for weekly business reviews.',
+      'Supported data cleaning, transformation, and ad-hoc analysis using Excel and SQL, reducing report time by 40%.',
+    ],
+  }
+];
+
+const education = [
+  {
+    date: 'July 2023',
+    degree: 'B.Tech in Computer Science & Engineering',
+    school: 'Walchand Institute of Technology, Solapur',
+    score: 'CGPA: 8.26 / 10.0',
+    details: 'Relevant: Data Structures, DBMS, Operating Systems, Web Technologies, Machine Learning',
+  },
+  {
+    date: 'March 2019',
+    degree: 'HSC (12th Grade) - Science Stream',
+    school: 'SMT. J.H.Deshmukh Jr. College, Jarud',
+    score: 'Percentage: 60.92%',
+    details: '',
+  },
+  {
+    date: 'March 2017',
+    degree: 'SSC (10th Grade)',
+    school: 'Vasantrao Naik High School, Jarud',
+    score: 'Percentage: 81.60%',
+    details: '',
+  }
 ];
 
 function scrollToSection(id: string) {
@@ -170,6 +222,13 @@ function IconLink({ href, label, children }: { href: string; label: string; chil
     </a>
   );
 }
+
+const fadeUp = {
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-100px" },
+  transition: { duration: 0.7, ease: "easeOut" as const }
+};
 
 function Home() {
   const [theme, setTheme] = useState<'dark' | 'light'>('light');
@@ -233,20 +292,34 @@ function Home() {
     [skillFilter],
   );
 
-  const handleContactSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const name = String(data.get('name') ?? '').trim();
-    const email = String(data.get('email') ?? '').trim();
-    const message = String(data.get('message') ?? '').trim();
-    if (!name || !email || !message) {
-      setFormStatus('Please complete all fields before sending.');
-      return;
+  // Contact form using Web3Forms API
+  const handleContactSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    
+    // Replace this string with the key sent to your email from web3forms.com
+    formData.append("access_key", "c41d56d3-1ab8-49d6-8b89-6fc6e223c2c7");
+    
+    try {
+      setFormStatus('Sending message...');
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        setFormStatus('Thanks for your message! I will get back to you soon.');
+        form.reset();
+      } else {
+        setFormStatus("Please put your Web3Forms Access Key in App.tsx to activate email delivery.");
+      }
+    } catch (error) {
+      setFormStatus("Oops! There was a network error. Please try again later.");
     }
-    const subject = encodeURIComponent(`Portfolio conversation from ${name}`);
-    const body = encodeURIComponent(`${message}\n\nReply to: ${email}`);
-    window.location.href = `mailto:adityajubale4567@gmail.com?subject=${subject}&body=${body}`;
-    setFormStatus('Your email client is ready to send this message.');
   };
 
   const navigate = (id: string) => {
@@ -317,7 +390,7 @@ function Home() {
           </div>
         </section>
 
-        <section id="about" className="section">
+        <motion.section id="about" className="section" {...fadeUp}>
           <div className="site-container">
             <div className="section-heading">
               <div className="section-index eyebrow">01 / About</div>
@@ -347,9 +420,9 @@ function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        <section id="services" className="section">
+        <motion.section id="services" className="section" {...fadeUp}>
           <div className="site-container">
             <div className="section-heading">
               <div className="section-index eyebrow">02 / What I do</div>
@@ -373,9 +446,9 @@ function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        <section id="experience" className="section">
+        <motion.section id="experience" className="section" {...fadeUp}>
           <div className="site-container">
             <div className="section-heading">
               <div className="section-index eyebrow">03 / Experience</div>
@@ -390,9 +463,9 @@ function Home() {
               ))}
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        <section id="skills" className="section">
+        <motion.section id="skills" className="section" {...fadeUp}>
           <div className="site-container">
             <div className="section-heading">
               <div className="section-index eyebrow">04 / Skills</div>
@@ -417,17 +490,17 @@ function Home() {
               {techStack.map((tech) => <span className="tech-chip" key={tech}><Code2 size={13} />{tech}</span>)}
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        <section className="section" aria-label="Selected results">
+        <motion.section className="section" aria-label="Selected results" {...fadeUp}>
           <div className="site-container">
             <div className="stats-band">
               {[['5', 'Enterprise Applications'], ['100,000+', 'Records Processed'], ['70%', 'Reporting Automated'], ['2', 'Years Experience']].map(([value, label]) => <div className="stat-cell" key={label} data-testid={`stat-${label.toLowerCase().replaceAll(' ', '-')}`}><div className="stat-value">{value}</div><div className="stat-label">{label}</div></div>)}
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        <section id="projects" className="section">
+        <motion.section id="projects" className="section" {...fadeUp}>
           <div className="site-container">
             <div className="section-heading">
               <div className="section-index eyebrow">05 / Projects</div>
@@ -451,9 +524,9 @@ function Home() {
             </div>
             {visibleProjects.length === 0 && <div className="muted" style={{ padding: '30px 0' }}>No projects in this category.</div>}
           </div>
-        </section>
+        </motion.section>
 
-        <section id="certifications" className="section">
+        <motion.section id="certifications" className="section" {...fadeUp}>
           <div className="site-container">
             <div className="section-heading">
               <div className="section-index eyebrow">06 / Learning</div>
@@ -461,18 +534,18 @@ function Home() {
             </div>
             <div className="learning-grid">
               {[
-                [GraduationCap, 'Professional Growth', 'Continuous learning through hands-on training in Angular, Node.js, REST API design, and data visualization for enterprise applications.'],
-                [BarChart3, 'Business Intelligence', 'Designed automated Power BI reporting solutions that improved decision-making speed and reduced manual reporting effort by 70%.'],
-                [FileCode2, 'Modern Development', 'Committed to staying current with modern front-end and back-end frameworks, performance tuning, and responsive UX best practices.'],
+                [GraduationCap, 'Data Science Certification', 'ExcelR (2024) - Comprehensive training in data science, machine learning, and analytics.'],
+                [BarChart3, 'Data Science Internship', 'AiVarient (2024) - Certificate of completion for end-to-end machine learning project implementation.'],
+                [FileCode2, 'Project Competition', 'Participant, Regional Level Project Competition – AISSMS College of Engineering (2023).'],
               ].map(([Icon, title, text]) => {
                 const LearningIcon = Icon as typeof GraduationCap;
                 return <article className="learning-card" key={title as string} data-testid={`card-learning-${title}`}><LearningIcon className="learning-icon" size={22} /><h3>{title as string}</h3><p>{text as string}</p></article>;
               })}
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        <section id="contact" className="section contact-section">
+        <motion.section id="contact" className="section contact-section" {...fadeUp}>
           <div className="site-container">
             <div className="section-heading">
               <div className="section-index eyebrow">07 / Contact</div>
@@ -495,12 +568,12 @@ function Home() {
                   <div className="field"><label htmlFor="email">Email</label><input id="email" name="email" type="email" required autoComplete="email" placeholder="you@example.com" data-testid="input-contact-email" /></div>
                 </div>
                 <div className="field"><label htmlFor="message">Message</label><textarea id="message" name="message" required placeholder="What are you working on?" data-testid="input-contact-message" /></div>
-                <button className="button-primary" type="submit" data-testid="button-contact-submit">Prepare email <ArrowUpRight size={16} /></button>
-                {formStatus && <p className="form-status" role="status" data-testid="status-contact-form">{formStatus}</p>}
+                <button className="button-primary" type="submit" data-testid="button-contact-submit">Send Message <ArrowUpRight size={16} /></button>
+                {formStatus && <p className="form-status" style={{ marginTop: '16px', color: 'hsl(var(--primary))' }} role="status">{formStatus}</p>}
               </form>
             </div>
           </div>
-        </section>
+        </motion.section>
       </main>
 
       <footer className="site-footer">
