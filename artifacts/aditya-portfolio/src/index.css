@@ -366,7 +366,10 @@ button { cursor: pointer; }
   .learning-grid { grid-template-columns:1fr; }
   .form-row { grid-template-columns:1fr; gap:0; }
   .contact-form { padding:20px; }
-  .footer-copy { max-width:calc(100% - 46px); }
+  .footer-inner { display:flex; flex-direction:column; align-items:center; gap:20px; padding-bottom:75px; }
+  .footer-copy { max-width:100%; text-align:center; line-height:1.8; }
+  .back-top { position:static; transform:none; }
+  .back-top:hover { transform:translateY(-3px); }
   .mobile-dock { position:fixed; display:flex; z-index:35; left:50%; bottom:12px; transform:translateX(-50%); width:calc(100% - 28px); justify-content:space-around; padding:8px; border:1px solid hsl(var(--border)); background:hsl(var(--background) / .92); backdrop-filter:blur(15px); box-shadow:var(--shadow); }
   .dock-link { display:grid; place-items:center; gap:2px; border:0; background:transparent; color:hsl(var(--muted-foreground)); font:.56rem var(--app-font-mono); text-transform:uppercase; letter-spacing:.08em; }
   .dock-link:hover { color:hsl(var(--primary)); }
