@@ -148,7 +148,7 @@ const techStack = ['JavaScript', 'TypeScript', 'Python', 'PHP', 'C#', 'Angular',
 
 const experience = [
   {
-    date: 'July 2026 — Present',
+    date: 'July 2025 — Present',
     title: 'Software Engineer',
     company: 'Sedna Technologies',
     bullets: [
